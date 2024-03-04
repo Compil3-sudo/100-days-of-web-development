@@ -6,10 +6,30 @@ img {
   width: 200px;
   height: 200px;
   border-radius: 100px;
+  border: 4px solid black;
+  position: relative;
+  margin: -104px 0 0 0;
+}
+
+.prettybox {
+  background-color: rgb(170, 96, 83);
+  border: 4px solid black;
+  width: 75%;
+  margin: 150px auto 40px;
+}
+
+.prettybox h1 {
+  color: rgb(26, 24, 24);
+  font-size: 26px;
+}
+
+.prettybox span {
+  color: rgb(128, 31, 31);
 }
 
 #todays-challenge {
-  color: rgb(170, 96, 83);
+  color: rgb(46, 43, 43);
   font-weight: bold;
-  font-size: 52px;
+  font-size: 40px;
+  padding: 0 20px 0 20px;
 }
