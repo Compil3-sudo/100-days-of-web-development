@@ -3,17 +3,33 @@ body {
   color: rgb(68, 68, 68);
 }
 
+#page-logo a {
+  color: rgb(183, 230, 235);
+}
+
+#page-logo a:hover {
+  color: rgb(59, 59, 59)
+}
+
 header {
   position: static;
 }
 
+header a {
+  color: rgb(183, 230, 235);
+}
+
+header a:hover {
+  background-color: rgb(183, 230, 235);
+  color: rgb(59, 59, 59)
+}
+
 main ul {
   width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 48px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px 25px;
-  margin-bottom: 25px;
 }
 
 main ul :nth-child(3) {
@@ -26,7 +42,6 @@ main li {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
-  width: 100%;
 }
 
 main li img {
@@ -43,7 +58,7 @@ main li img {
 }
 
 .item-content h2 {
-  margin: 10px 0;
+  margin: 0;
 }
 
 .actions {
