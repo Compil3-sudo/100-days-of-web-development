@@ -8,8 +8,16 @@ header {
 }
 
 main ul {
-  width: 800px;
+  width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 25px;
+  margin-bottom: 25px;
+}
+
+main ul :nth-child(3) {
+  grid-column: span 2;
 }
 
 main li {
@@ -18,6 +26,7 @@ main li {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 }
 
 main li img {
@@ -30,6 +39,7 @@ main li img {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .item-content h2 {
@@ -37,11 +47,7 @@ main li img {
 }
 
 .actions {
-  display: flex;
-  flex-grow: 1;
-  box-sizing: border-box;
-  align-items: end;
-  justify-content: end;
+  text-align: end;
 }
 
 .actions a {
