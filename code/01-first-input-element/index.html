@@ -7,38 +7,68 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <form action="/code/01-first-input-element/" method="GET">
-      <label for="username">Your Name</label>
-      <input type="text" name="user-name" id="username" />
-      <label for="email">Your email address</label>
-      <input type="email" name="user-email" id="email" />
-      <label for="userage">Your age</label>
-      <input type="number" step="2" name="user-age" id="userage" />
-      <label for="userpassword">Your password</label>
-      <input type="password" name="user-password" id="userpassword" />
-      <label for="userbirthday">Your birthday</label>
-      <input type="date" name="user-birthday" id="userbirthday" />
 
-      <hr>
+    <header>
+      <h1>Demo Form</h1>
+    </header>
 
-      <h2>How should we verify your account</h2>
-      <p>Radio buttons only allow 1 single choice. Set the same name to all
-        inputs!</p>
+    <main>
+      <form action="/code/01-first-input-element/" method="GET">
+        <label for="username">Your Name</label>
+        <input type="text" name="user-name" id="username" required />
 
-      <div class="form-control-inline">
-        <input type="radio" name="verify" id="sms" value="message">
-        <label for="sms">SMS LOL</label>
-      </div>
-      <div class="form-control-inline">
-        <input type="radio" name="verify" id="phone" value="phone">
-        <label for="phone">do NOT call me</label>
-      </div>
-      <div class="form-control-inline">
-        <input type="radio" name="verify" id="email" value="email">
-        <label for="email">spam</label>
-      </div>
+        <label for="usermessage">Your opinion does not matter</label>
+        <textarea name="user-message" id="usermessage" cols="30"
+          rows="10"></textarea>
 
-      <button>Submit</button>
-    </form>
+        <label for="email">Your email address</label>
+        <input type="email" name="user-email" id="email" required />
+        <label for="userage">Your age</label>
+        <input type="number" step="2" name="user-age" id="userage" />
+        <label for="userpassword">Your password</label>
+        <input type="password" name="user-password" id="userpassword" required
+          minlength="7" />
+        <label for="userbirthday">Your birthday</label>
+        <input type="date" name="user-birthday" id="userbirthday"
+          min="2024-03-06" max="2069-12-16" />
+
+        <hr>
+
+        <label for>Color?</label>
+        <select name="favcolor" id="fav-color">
+          <option value="black">Black</option>
+          <option value="dark">Dark</option>
+          <option value="darkness">Darkness</option>
+        </select>
+
+        <h2>How should we verify your account</h2>
+        <p>Radio buttons only allow 1 single choice. Set the same name to all
+          inputs!</p>
+
+        <div class="form-control-inline">
+          <input type="radio" name="verify" id="sms" value="message">
+          <label for="sms">SMS LOL</label>
+        </div>
+        <div class="form-control-inline">
+          <input type="radio" name="verify" id="phone" value="phone">
+          <label for="phone">do NOT call me</label>
+        </div>
+        <div class="form-control-inline">
+          <input type="radio" name="verify" id="email" value="email">
+          <label for="email">spam</label>
+        </div>
+
+        <div class="form-control-inline">
+          <input type="checkbox" id="agree-terms" name="terms">
+          <label for="agree-terms">Agree to everything?</label>
+        </div>
+
+        <p>if I need more than 1 checkbox use VALUE to know what is checked</p>
+
+        <button type="reset">Clear form</button>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+
   </body>
 </html>
