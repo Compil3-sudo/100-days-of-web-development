@@ -65,4 +65,37 @@ router.get("/posts/:id", async function (req, res) {
   res.render("post-detail", { post: postData });
 });
 
+router.get("/posts/:id/edit", async function (req, res) {
+  const postId = req.params.id;
+  const query = `
+    SELECT * FROM posts
+    WHERE id = ?
+  `;
+
+  const [posts] = await db.query(query, [postId]);
+
+  if (!posts || posts.length === 0) {
+    return res.status(404).render("404");
+  }
+
+  res.render("update-post", { post: posts[0] });
+});
+
+router.post("/posts/:id/edit", async function (req, res) {
+  const postId = req.params.id;
+  const query = `
+    UPDATE posts SET title = ?, summary = ?, body = ? WHERE id = ?
+  `;
+
+  const updatedPost = [req.body.title, req.body.summary, req.body.content];
+
+  const [posts] = await db.query(query, [...updatedPost, postId]);
+
+  if (!posts || posts.length === 0) {
+    return res.status(404).render("404");
+  }
+
+  res.redirect("/posts", { post: posts[0] });
+});
+
 module.exports = router;
