@@ -95,7 +95,22 @@ router.post("/posts/:id/edit", async function (req, res) {
     return res.status(404).render("404");
   }
 
-  res.redirect("/posts", { post: posts[0] });
+  res.redirect("/posts");
+});
+
+router.post("/posts/:id/delete", async function (req, res) {
+  const postId = req.params.id;
+  const query = `
+    DELETE FROM posts WHERE id = ?
+  `;
+
+  const [posts] = await db.query(query, [postId]);
+
+  if (!posts) {
+    return res.status(404).render("404");
+  }
+
+  res.redirect("/posts");
 });
 
 module.exports = router;
