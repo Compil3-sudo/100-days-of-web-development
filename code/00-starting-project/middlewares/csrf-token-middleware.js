@@ -3,6 +3,4 @@ function addCSRFToken(req, res, next) {
   next();
 }
 
-module.exports = {
-  addCSRFToken: addCSRFToken,
-};
+module.exports = addCSRFToken;

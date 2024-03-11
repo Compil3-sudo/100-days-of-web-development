@@ -4,11 +4,12 @@ function postIsValid(title, content) {
 
 function userCredentialsAreValid(email, confirmEmail, password) {
   return (
-    enteredEmail &&
-    enteredConfirmEmail & enteredPassword &&
-    enteredPassword.trim().length >= 6 &&
-    enteredEmail === enteredConfirmEmail &&
-    enteredEmail.includes("@")
+    email &&
+    confirmEmail &&
+    password &&
+    password.trim().length >= 6 &&
+    email === confirmEmail &&
+    email.includes("@")
   );
 }
 

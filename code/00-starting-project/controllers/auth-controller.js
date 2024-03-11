@@ -3,7 +3,7 @@ const validation = require("../util/validation");
 const User = require("../models/user");
 
 function getSignup(req, res) {
-  let sessionErrorData = validationSession.getSessionErrorData(req, {
+  const sessionErrorData = validationSession.getSessionErrorData(req, {
     email: "",
     confirmEmail: "",
     password: "",
@@ -15,7 +15,7 @@ function getSignup(req, res) {
 }
 
 function getLogin(req, res) {
-  let sessionErrorData = validationSession.getSessionErrorData(req, {
+  const sessionErrorData = validationSession.getSessionErrorData(req, {
     email: "",
     password: "",
   });
