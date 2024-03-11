@@ -4,13 +4,21 @@ const express = require("express");
 const session = require("express-session");
 const csrf = require("csurf");
 
+// CUSTOM MIDDLEWARES
+const authMiddleware = require("./middlewares/auth-middleware");
+
+// CONFIG
 const sessionConfig = require("./config/session");
 const db = require("./data/database");
+
+// ROUTES
 const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blog");
 
+// MONGODB
 const mongoDbSessionStore = sessionConfig.createSessionStore(session);
 
+// EXPRESS
 const app = express();
 
 app.set("view engine", "ejs");
@@ -22,19 +30,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session(sessionConfig.createSessionConfig(mongoDbSessionStore)));
 app.use(csrf());
 
-app.use(async function (req, res, next) {
-  const user = req.session.user;
-  const isAuth = req.session.isAuthenticated;
+// CUSTOM MIDDLEWARES
+app.use(authMiddleware);
 
-  if (!user || !isAuth) {
-    return next();
-  }
-
-  res.locals.isAuth = isAuth;
-
-  next();
-});
-
+// ROUTES
 app.use(authRoutes);
 app.use(blogRoutes);
 
