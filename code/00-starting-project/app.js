@@ -6,6 +6,7 @@ const csrf = require("csurf");
 
 // CUSTOM MIDDLEWARES
 const authMiddleware = require("./middlewares/auth-middleware");
+const addCSRFTokenMiddleware = require("./middlewares/csrf-token-middleware");
 
 // CONFIG
 const sessionConfig = require("./config/session");
@@ -29,6 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(session(sessionConfig.createSessionConfig(mongoDbSessionStore)));
 app.use(csrf());
+
+app.use(addCSRFTokenMiddleware);
 
 // CUSTOM MIDDLEWARES
 app.use(authMiddleware);

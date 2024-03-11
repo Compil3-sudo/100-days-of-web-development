@@ -3,7 +3,7 @@ const validationSession = require("../util/validation-session");
 const validation = require("../util/validation");
 
 function getHome(req, res) {
-  res.render("welcome", { csrfToken: req.csrfToken() });
+  res.render("welcome");
 }
 
 async function getAdmin(req, res) {
